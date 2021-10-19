@@ -1,3 +1,2 @@
-- This repository contains the simple projects which I made and will make.
-- I am always open to learning and improving.
-- So don't hesitate to create a pull request if you feel my code is not optimal.
+- This repository contains a simple madlib generator created using tkinter module
+- This project uses basics of python, so it is beginnner friendly
