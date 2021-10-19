@@ -1,0 +1,3 @@
+- A word search game made using python
+- The final project of coursera course : https://www.coursera.org/learn/learn-to-program/home/welcome
+- Credits to the faculty for the documentation of code
