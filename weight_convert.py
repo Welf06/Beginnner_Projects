@@ -7,4 +7,4 @@ if unit == 'kg':
 elif unit == 'lbs':
    print(f'Your weight in kilograms: {(weight*0.453592):.1f}kg')
 else:
-   print('Enter a proper unit')
+   print('Enter a proper unit!')
