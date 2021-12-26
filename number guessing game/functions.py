@@ -1,6 +1,29 @@
-import random
+from random import randint
 
 players = {}
+# to preserve the existing leaderboard 
+with open("leaderboard.txt", 'r') as f:
+        for line in f:
+            players[line.split()[0]] =int(line.split()[1]) 
+def game():
+    
+    print('''
+                            Welcome to Number Guessing Game
+            
+    You have to correctly guess the number between 1 to 100 in as less turns as possible
+
+    Type "help" to know the commands''')
+    while True:
+        cmd = input('enter command: ').strip().lower()
+        if cmd == 'play':
+            play()
+        elif cmd == 'quit':
+            break
+        elif cmd == 'help':
+            help()
+        elif cmd == 'lead': 
+            leaderboard()
+
 
 def help():
     """(None) -> str \n
@@ -17,7 +40,8 @@ def play():
     starts the game
     """
     
-    num = random.randint(1,100)
+    num = randint(1,100)
+    print(num)
     count= 0
     name = input("Enter your username: ").strip().lower()
     while True:
@@ -37,15 +61,21 @@ def play():
                 players[name] = players.get(name, 0) + count
                 break
             print("You guessed correctly! \nIt took you", count, "turns to guess correctly")
-            players[name] = players.get(name, 0) + count
+            players[name] = players.get(name, 0) 
+            players[name] = count
+            
             break
+    with open('leaderboard.txt','w') as f:
+        for name, count in sorted(players.items(), key= lambda x : x[1]):
+            f.write("{} {}\n".format(name, count))
 
 def leaderboard():
     """(None) -> None
     Prints the leaderboard
     """
-    print ('name        guesses')
-    for k in players:
-        print (f'{k}            {players[k]}')
- 
-    
+    print("{name:<15}{score:<5}".format(name='NAME', score= 'SCORE'))
+    with open("leaderboard.txt", 'r') as f:
+        for line in f:
+            print("{name:<15}{score:<5}".format(name=line.split()[0], score= line.split()[1]))
+if __name__=='__main__':
+    game()
