@@ -5,8 +5,8 @@ print('     ROCK, PAPER and SCISSORS')
 count = 1
 choice = ['rock', 'paper', 'scissor']
 win = 0
-lose= 0 
-while count<6:
+lose = 0
+while count < 6:
     print(f'ROUND {count}')
     user = input('Enter your choice: ').lower().strip()
     comp = random.choice(choice)
@@ -17,21 +17,21 @@ while count<6:
         print(f"Computer's choice: {comp}")
     if comp == user:
         print(f'Tie! Both of you chose {comp}')
-    elif user == 'rock' :
+    elif user == 'rock':
         if comp == 'paper':
             print('You lose :C')
             lose += 1
         if comp == 'scissor':
             print('you win :D')
             win += 1
-    elif user == 'paper' : 
+    elif user == 'paper':
         if comp == 'scissor':
             print('You lose :C')
             lose += 1
         if comp == 'rock':
             print('you win :D')
             win += 1
-    elif user == 'scissor' :
+    elif user == 'scissor':
         if comp == 'rock':
             print('You lose :C')
             lose += 1
