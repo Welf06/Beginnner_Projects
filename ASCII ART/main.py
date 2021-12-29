@@ -1,10 +1,10 @@
 from PIL import Image
+from tkinter import Tk     # from tkinter import Tk for Python 3.x
+from tkinter.filedialog import askopenfilename
 
 def get_img_matrix(img):
    width, height = img.size
    # resizing image to fit in terminal
-   if width>300:
-      img.resize((width//3,height//3))
    img.resize((width//2, height//2))
    # initializing a list to store the rgb of each pixel of a row in a 2D array for the whole image
    image_list = []
@@ -45,9 +45,23 @@ def display_ascii_art(img):
       for column in ascii_matrix[row]:
          print(column*3, end = ' ')
       print()
+def img_resize(img):
+   basewidth = 300
+   wpercent = (basewidth/float(img.size[0]))
+   hsize = int((float(img.size[1])*float(wpercent)))
+   img = img.resize((basewidth,hsize), Image.ANTIALIAS)
+   display_ascii_art(img)
+ 
 
-image = Image.open('ascii-pineapple.jpg')
-display_ascii_art(image)
+Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
+filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
+image = Image.open(filename)
+
+#to check whether wifth>300 to resize
+if image.size[0] >300:
+   img_resize(image)
+else :
+   display_ascii_art(image)
 
       
       
