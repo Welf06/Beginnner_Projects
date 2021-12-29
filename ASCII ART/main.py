@@ -47,8 +47,8 @@ def display_ascii_art(img):
       print()
 def img_resize(img):
    basewidth = 300
-   wpercent = (basewidth/float(img.size[0]))
-   hsize = int((float(img.size[1])*float(wpercent)))
+   widthpercent = (basewidth/float(img.size[0]))
+   hsize = int((float(img.size[1])*float(widthpercent)))
    img = img.resize((basewidth,hsize), Image.ANTIALIAS)
    display_ascii_art(img)
  
