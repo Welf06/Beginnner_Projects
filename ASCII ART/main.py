@@ -2,6 +2,10 @@ from PIL import Image
 
 def get_img_matrix(img):
    width, height = img.size
+   # resizing image to fit in terminal
+   if width>300:
+      img.resize((width//3,height//3))
+   img.resize((width//2, height//2))
    # initializing a list to store the rgb of each pixel of a row in a 2D array for the whole image
    image_list = []
    pxl = img.load()
@@ -39,10 +43,10 @@ def display_ascii_art(img):
    ascii_matrix = get_ascii_matrix(img)
    for row in range(len(ascii_matrix)):
       for column in ascii_matrix[row]:
-         print(column, end = ' ')
+         print(column*3, end = ' ')
       print()
 
-image = Image.open('download.jpg')
+image = Image.open('ascii-pineapple.jpg')
 display_ascii_art(image)
 
       
