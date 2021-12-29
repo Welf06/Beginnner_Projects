@@ -52,9 +52,9 @@ def img_resize(img):
    img = img.resize((basewidth,hsize), Image.ANTIALIAS)
    display_ascii_art(img)
  
-
-Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
-filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
+# to take input from user using gui of the os
+Tk().withdraw() 
+filename = askopenfilename()
 image = Image.open(filename)
 
 #to check whether wifth>300 to resize
