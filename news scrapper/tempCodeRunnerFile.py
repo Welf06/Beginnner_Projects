@@ -1,0 +1,1 @@
+print(article_list[i[1]])
